@@ -34,7 +34,7 @@ namespace stock_simulator
 
         Int16 update_flag = 0;
 
-        string[] shcode_50 = 
+        //string[] shcode_50 = 
 
         int date_flag = 0;
 
@@ -43,6 +43,209 @@ namespace stock_simulator
         int save_data_order = 0;
         string[] stock_code_data = new string[2000];
         string[] stock_name_data = new string[2000];
+
+        string[] KOSPI200_CODE= {
+                                "028260", //제일모직(주)
+                                "170900", //동아에스티(주)
+                                "060980", //(주)한라홀딩스
+                                "007810", //(주)코리아써키트
+                                "009580", //무림피앤피(주)
+                                "093050", //(주)LF
+                                "105630", //한세실업(주)
+                                "049770", //(주)동원F&B
+                                "020150", //일진머티리얼즈(주)
+                                "011210", //현대위아(주)
+                                "003240", //태광산업(주)
+                                "082740", //두산엔진(주)
+                                "069260", //휴켐스(주)
+                                "128940", //한미약품(주)
+                                "120110", //코오롱인더스트리(주)
+                                "115390", //(주)락앤락
+                                "052690", //한국전력기술(주)
+                                "036460", //한국가스공사
+                                "034020", //두산중공업(주)
+                                "025860", //남해화학(주)
+                                "034120", //(주)SBS
+                                "104700", //한국철강(주)
+                                "042660", //대우조선해양(주)
+                                "084870", //(주)더베이직하우스
+                                "114090", //그랜드코리아레저(주)
+                                "034730", //에스케이씨앤씨(주)
+                                "078520", //(주)에이블씨엔씨
+                                "068870", //(주)LG생명과학
+                                "042670", //두산인프라코어(주)
+                                "047040", //(주)대우건설
+                                "001430", //(주)세아베스틸
+                                "010130", //고려아연(주)
+                                "015760", //한국전력공사
+                                "103140", //(주)풍산
+                                "011070", //LG이노텍(주)
+                                "108670", //(주)엘지하우시스
+                                "008490", //(주)서흥
+                                "008060", //대덕전자(주)
+                                "009540", //현대중공업(주)
+                                "004430", //송원산업(주)
+                                "004130", //대덕GDS(주)
+                                "007340", //동아타이어공업(주)
+                                "003300", //한일시멘트(주)
+                                "020000", //(주)한섬
+                                "017670", //SK텔레콤(주)
+                                "010140", //삼성중공업(주)
+                                "009290", //광동제약(주)
+                                "004490", //세방전지(주)
+                                "003000", //부광약품(주)
+                                "064960", //S&T모티브(주)
+                                "086280", //현대글로비스(주)
+                                "078930", //(주)GS
+                                "003600", //SK(주)
+                                "003490", //(주)대한항공
+                                "010620", //(주)현대미포조선
+                                "009680", //(주)모토닉
+                                "001040", //CJ(주)
+                                "000720", //현대건설(주)
+                                "079980", //(주)휴비스
+                                "028050", //삼성엔지니어링(주)
+                                "073240", //금호타이어(주)
+                                "069960", //(주)현대백화점
+                                "069620", //(주)대웅제약
+                                "051910", //(주)LG화학
+                                "051900", //(주)LG생활건강
+                                "051600", //한전KPS(주)
+                                "051310", //(주)포스코플랜텍
+                                "097950", //CJ제일제당(주)
+                                "097230", //(주)한진중공업
+                                "096770", //SK이노베이션(주)
+                                "093370", //(주)후성
+                                "090430", //(주)아모레퍼시픽
+                                "035420", //네이버(주)
+                                "035250", //(주)강원랜드
+                                "033530", //세종공업(주)
+                                "033240", //자화전자(주)
+                                "032640", //(주)LG유플러스
+                                "034220", //엘지디스플레이(주)
+                                "033920", //(주)무학
+                                "033780", //(주)케이티앤지
+                                "006120", //SK케미칼(주)
+                                "005950", //이수화학(주)
+                                "005930", //삼성전자(주)
+                                "005850", //에스엘(주)
+                                "005740", //(주)크라운제과
+                                "005610", //(주)삼립식품
+                                "005490", //(주)포스코
+                                "004990", //롯데제과(주)
+                                "004800", //(주)효성
+                                "004710", //한솔테크닉스(주)
+                                "008000", //도레이케미칼(주)
+                                "007860", //(주)서연
+                                "007690", //국도화학(주)
+                                "007570", //일양약품(주)
+                                "002240", //고려제강(주)
+                                "006650", //대한유화(주)
+                                "006400", //삼성SDI(주)
+                                "006380", //(주)카프로
+                                "006280", //(주)녹십자
+                                "006260", //(주)LS
+                                "012630", //현대산업개발(주)
+                                "012450", //삼성테크윈(주)
+                                "012330", //현대모비스(주)
+                                "009150", //삼성전기(주)
+                                "008770", //(주)호텔신라
+                                "025540", //한국단자공업(주)
+                                "023530", //롯데쇼핑(주)
+                                "047050", //(주)대우인터내셔널
+                                "004370", //(주)농심
+                                "004170", //(주)신세계
+                                "004150", //한솔홀딩스(주)
+                                "004020", //현대제철(주)
+                                "004000", //삼성정밀화학(주)
+                                "003920", //남양유업(주)
+                                "139480", //(주)이마트
+                                "007310", //(주)오뚜기
+                                "030200", //(주)케이티
+                                "030000", //(주)제일기획
+                                "029530", //(주)신도리코
+                                "036570", //(주)엔씨소프트
+                                "066570", //LG전자(주)
+                                "001680", //대상(주)
+                                "001230", //동국제강(주)
+                                "001120", //(주)LG상사
+                                "000990", //(주)동부하이텍
+                                "000880", //(주)한화
+                                "000830", //삼성물산(주)
+                                "010120", //LS산전(주)
+                                "010060", //오씨아이(주)
+                                "009830", //한화케미칼(주)
+                                "000640", //동아쏘시오홀딩스(주)
+                                "000070", //(주)삼양홀딩스
+                                "001800", //(주)오리온
+                                "012750", //(주)에스원
+                                "021240", //코웨이(주)
+                                "001740", //SK네트웍스(주)
+                                "020760", //일진디스플레이(주)
+                                "011790", //SKC(주)
+                                "011780", //금호석유화학(주)
+                                "011200", //현대상선(주)
+                                "011170", //롯데케미칼(주)
+                                "010950", //S-OIL(주)
+                                "010780", //아이에스동서(주)
+                                "010690", //(주)화신
+                                "010520", //현대하이스코(주)
+                                "003620", //쌍용자동차(주)
+                                "003570", //S&T중공업(주)
+                                "003550", //(주)LG
+                                "003520", //영진약품공업(주)
+                                "014830", //(주)유니드
+                                "013570", //디와이(주)
+                                "005300", //롯데칠성음료(주)
+                                "005180", //(주)빙그레
+                                "005090", //삼광글라스(주)
+                                "019680", //(주)대교
+                                "018880", //한라비스테온공조(주)
+                                "017800", //현대엘리베이터(주)
+                                "016800", //(주)퍼시스
+                                "003410", //쌍용양회공업(주)
+                                "003030", //(주)세아제강
+                                "002960", //한국쉘석유(주)
+                                "002790", //(주)아모레퍼시픽그룹
+                                "002380", //(주)케이씨씨
+                                "002350", //넥센타이어(주)
+                                "002270", //(주)롯데푸드
+                                "005380", //현대자동차(주)
+                                "000670", //(주)영풍
+                                "000660", //에스케이하이닉스(주)
+                                "000480", //조선내화(주)
+                                "000430", //대원강업(주)
+                                "000270", //기아자동차(주)
+                                "000240", //한국타이어월드와이드(주)
+                                "000210", //대림산업(주)
+                                "000140", //하이트진로홀딩스(주)
+                                "000150", //(주)두산
+                                "000120", //씨제이대한통운(주)
+                                "000100", //(주)유한양행
+                                "000080", //하이트진로(주)
+                                "161890", //한국콜마(주)
+                                "161390", //한국타이어(주)
+                                "007070", //(주)지에스리테일
+                                "018260", //삼성에스디에스(주)
+                                "047810", //한국항공우주산업(주)
+                                "024110", //중소기업은행
+                                "000030", //(주)우리은행
+                                "037620", //미래에셋증권(주)
+                                "005940", //엔에이치투자증권(주)
+                                "006800", //대우증권(주)
+                                "016360", //삼성증권(주)
+                                "003450", //현대증권(주)
+                                "032830", //삼성생명보험(주)
+                                "088350", //한화생명보험(주)
+                                "000810", //삼성화재해상보험(주)
+                                "005830", //동부화재해상보험(주)
+                                "138930", //(주)BNK금융지주
+                                "086790", //(주)하나금융지주
+                                "105560", //(주)KB금융지주
+                                "071050", //한국투자금융지주(주)
+                                "055550", //(주)신한금융지주회사
+                                "029780" //삼성카드(주)
+                                };
 
 
         // 데이터 숫자 정보
@@ -191,7 +394,7 @@ namespace stock_simulator
 
             xingQuery.ReceiveData += xingQuery_ReceiveData;
 
-            xingQuery.LoadFromResFile("c:/etrade/xingapi/res/t9945.res");
+            bool testBool = xingQuery.LoadFromResFile("c:/ebest/xingapi/res/t9945.res");
             xingQuery.SetFieldData("t9945InBlock", "gubun", 0, "1");
             xingQuery.Request(false);
         }
@@ -211,7 +414,7 @@ namespace stock_simulator
             int count = 0;
 
             // database로 부터 데이터 읽어 변수에 저장
-            while (reader.Read())
+            for (int i = 0; i < 200; i++ )
             {
                 stock_code_data[count] = Convert.ToString(reader["code"]);
                 stock_name_data[count] = Convert.ToString(reader["name"]);
@@ -291,240 +494,47 @@ namespace stock_simulator
                 /* 데이터 수신 */
         void xingQuery_ReceiveData(string szTrCode)
         {
-            //기간별 주가 
-            if (szTrCode.Equals("t1305"))
-            {
-                if (update_flag == 2)
+
+                // 주식 코드 데이터 
+                if (szTrCode.Equals("t9945"))
                 {
-                    int count = xingQuery.GetBlockCount("t1305OutBlock1");
+                    string name = "";
+                    string code = "";
+
+                    int count = xingQuery.GetBlockCount("t9945OutBlock");
+
+                    resultList.Items.Clear();
+                    resultList.Items.Add("t9945OutBlockTEST");
+
+                    // 수신한 코드 정보를 처리
                     for (int idx = 0; idx < count; idx++)
                     {
+                        name = xingQuery.GetFieldData("t9945OutBlock", "hname", idx);
+                        code = xingQuery.GetFieldData("t9945OutBlock", "shcode", idx);
 
+                        // List box에 출력
+                        string result = idx + "\t" + name + "\t\t\t" + code;
+                        resultList.Items.Add(result);
 
-
-                }
-                if(update_flag == 1)
-                {
-                    string date;
-
-                    int count = xingQuery.GetBlockCount("t1305OutBlock1");
-
-                    for (int idx = 0; idx < count; idx++)
-                    {
-
-                        date = xingQuery.GetFieldData("t1305OutBlock1", "date", count - 1 - idx);
-
+                        // database에 저장
                         try
                         {
-                            string sql = String.Format("insert into `stock`.`new_date` values ('{0}', '{1}')", idx, date);
+                            string sql = String.Format("insert into `stock`.`stock_code` values ('{0}', '{1}', '{2}')", idx, name, code);
                             MySqlCommand cmd = new MySqlCommand(sql, conn);
                             cmd.ExecuteNonQuery();
                         }
-                        catch (MySqlException c)
+                        catch (MySqlException e)
                         {
                             // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
                         }
                     }
-                    update_flag = 0;
-
-
                 }
-                if (date_flag == 1)
-                {
-                    string date;
-
-                    int count = xingQuery.GetBlockCount("t1305OutBlock1");
-
-                    for (int idx = 0; idx < count; idx++)
-                    {
-
-                        date = xingQuery.GetFieldData("t1305OutBlock1", "date", count - 1 - idx);
-
-                        try
-                        {
-                            string sql = String.Format("insert into `stock`.`date` values ('{0}', '{1}')", idx, date);
-                            MySqlCommand cmd = new MySqlCommand(sql, conn);
-                            cmd.ExecuteNonQuery();
-                        }
-                        catch (MySqlException c)
-                        {
-                            // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
-                        }
-                    }
-                    date_flag = 0;
-                }
-                else
-                {
-                    string date;
-                    string close;
-                    string volume;
-                    string marketcap;
-                    string amount;
-                    //string buy_price;
-
-                    string pre_date;
-                    string pre_close = "";
-                    string pre_volume;
-                    string pre_marketcap;
-                    string pre_amount = "";
-                    //string pre_buy_price = "";
-
-                    xingQuery.ReceiveData -= xingQuery_ReceiveData;
-
-                    //resultList.Items.Clear();
-
-                    int count = xingQuery.GetBlockCount("t1305OutBlock1");
-
-                    /*
-                    string sql = String.Format("LOCK TABLES `stock`.`{0}` WRITE", SC);
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.ExecuteNonQuery();
-                    */
-
-                    string sql = String.Format("insert into `stock`.`{0}` values", SC);
-                    MySqlCommand cmd;
-
-                    /*
-                    int stable_flag = 0;
-                    UInt64 count_stable = 0;
-                    String buy_price_p = "0";
-                     * */
-
-                    // 요청한 기간별 주가 정보를 수신
-                    for (int idx = 0; idx < count; idx++)
-                    {
-                        date = xingQuery.GetFieldData("t1305OutBlock1", "date", count - 1 - idx);
-                        close = xingQuery.GetFieldData("t1305OutBlock1", "close", count - 1 - idx);
-                        volume = xingQuery.GetFieldData("t1305OutBlock1", "volume", count - 1 - idx);
-                        marketcap = xingQuery.GetFieldData("t1305OutBlock1", "marketcap", count - 1 - idx);
-                        amount = Convert.ToString((Convert.ToUInt64(marketcap) * 1000000) / Convert.ToUInt64(close));
-
-                        /*
-                        if (stable_flag == 1)
-                        {
-                            if (count_stable >= (Convert.ToUInt64(amount) * 3))
-                            {
-                                stable_flag = 0;
-                                count_stable = 0;
-                            }
-                            else
-                            {
-                                count_stable = count_stable + Convert.ToUInt64(volume);
-                            }
-                        }
-
-                        if ((idx == 0) || (Convert.ToUInt64(pre_amount) >= (Convert.ToUInt64(amount) + 500)) || (Convert.ToUInt64(amount) >= (Convert.ToUInt64(pre_amount) + 500)))
-                        {
-                            buy_price = close;
-                            stable_flag = 1;
-                        }
-                        else
-                        {
-                            // 수량 * 전날 구매 가격 
-                            buy_price = Convert.ToString(((Convert.ToUInt64(pre_amount) * Convert.ToUInt64(pre_buy_price))
-                                                             - (Convert.ToUInt64(volume) * Convert.ToUInt64(pre_buy_price))
-                                                             + (Convert.ToUInt64(volume) - (Convert.ToUInt64(amount) - Convert.ToUInt64(pre_amount))) * Convert.ToUInt64(close))
-                                                          / Convert.ToUInt64(amount));
-                        }
-                         * */
-
-                        pre_date = date;
-                        pre_close = close;
-                        pre_volume = volume;
-                        pre_marketcap = marketcap;
-                        pre_amount = amount;
-                        //pre_buy_price = buy_price;
-
-                        // List box에 기간별 주가를 출력
-                        //string result = idx + "\t" + date + "\t" + close + "\t" + volume + "\t" + marketcap + "\t\t" + amount + "\t" + buy_price;
-                        //resultList.Items.Add(result);
-                        /*
-                        if (stable_flag == 1)
-                            buy_price_p = "0";
-                        else if (stable_flag == 0)
-                            buy_price_p = buy_price;
-                         * */
-
-                        if (idx == count - 1)
-                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}') ", date, close, volume, marketcap, amount);
-                        else
-                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}'), ", date, close, volume, marketcap, amount);
-                        // database에 기간별 주가를 저장
-
-                    }
-
-                    try
-                    {
-                        cmd = new MySqlCommand(sql, conn);
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (MySqlException e)
-                    {
-                        // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
-                    }
-
-
-                    /*
-                    sql = String.Format("UNLOCK TABLES");
-                    cmd = new MySqlCommand(sql, conn);
-                    cmd.ExecuteNonQuery();
-                    */
-
-                    resultList.Items.Add("-----");
-
-                    // 전체 데이터 저장시
-                    if (save_data_flag == 1)
-                    {
-                        // 다음 데이터를 요청
-                        save_data_order++;
-                        if (save_data_order < 1082)
-                        {
-                            resultList.Items.Add("re_request");
-                            request_t1305(stock_code_data[save_data_order]);
-                        }
-                        else
-                            save_data_flag = 0;
-                    }
-                }
-
-            }
-            // 주식 코드 데이터 
-            else if (szTrCode.Equals("t9945"))
-            {
-                string name = "";
-                string code = "";
-
-                int count = xingQuery.GetBlockCount("t9945OutBlock");
-
-                resultList.Items.Clear();
-                resultList.Items.Add("t9945OutBlockTEST");
-
-                // 수신한 코드 정보를 처리
-                for (int idx = 0; idx < count; idx++)
-                {
-                    name = xingQuery.GetFieldData("t9945OutBlock", "hname",idx);
-                    code = xingQuery.GetFieldData("t9945OutBlock", "shcode", idx);
-
-                    // List box에 출력
-                    string result = idx + "\t" + name + "\t\t\t" + code;
-                    resultList.Items.Add(result);
-
-                    // database에 저장
-                    try
-                    {
-                        string sql = String.Format("insert into `stock`.`stock_code` values ('{0}', '{1}', '{2}')", idx, name, code);
-                        MySqlCommand cmd = new MySqlCommand(sql, conn);
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (MySqlException e)
-                    {
-                        // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
-                    }
-                }
-            }
-
 
         }
+
+
+
+
 
 
         private void simulator2_Click(object sender, EventArgs e)
@@ -2411,6 +2421,48 @@ namespace stock_simulator
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql = String.Format("SELECT * from stock.stock_code;");
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                sql = "";
+
+                while (reader.Read())
+                {
+                    foreach (string code in KOSPI200_CODE)
+                    {
+                        if (code == Convert.ToString(reader["code"]))
+                        {
+
+                            sql += String.Format("INSERT INTO `stock.stock_code2` (`name`, `code`) VALUE('{0}', '{1}');", Convert.ToString(reader["name"]), Convert.ToString(reader["code"]));
+                        }
+                    }
+                }
+                reader.Close();
+
+                cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+
+
+                //string sql = String.Format("CREATE TABLE `stock.stock_code2` (`num` INT NOT NULL,`name` VARCHAR(40) NULL,`code` char(6) NULL,PRIMARY KEY (`num`) )");
+                //MySqlCommand cmd = new MySqlCommand(sql, conn);
+                //cmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException a)
+            {
+                int errorcode = a.Number;
+                MessageBox.Show(Convert.ToString(errorcode));
+                //a.StackTrace("");
+                // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+            }
 
         }
 

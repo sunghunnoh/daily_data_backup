@@ -226,3 +226,15 @@ C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simula
 C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.Form1.resources
 C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
 C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+D:\AT\daily_data_backup\stock_simulator\bin\Debug\stock_simulator.exe.config
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\stock_simulator.exe
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\stock_simulator.pdb
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+D:\AT\daily_data_backup\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+D:\AT\daily_data_backup\stock_simulator\bin\Debug\stock_simulator.exe
+D:\AT\daily_data_backup\stock_simulator\bin\Debug\stock_simulator.pdb
