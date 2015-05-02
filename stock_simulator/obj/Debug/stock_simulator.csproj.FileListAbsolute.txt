@@ -1,0 +1,228 @@
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_1\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_2\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_3\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_4\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_5\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_6\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_7\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\o\Documents\Visual Studio 2013\Projects\stock\test\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_8\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_9\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_10\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_11\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_12\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_13\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_14\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_15\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\stock_simulator_16\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\bin\Debug\stock_simulator.exe.config
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\Interop.XA_DATASETLib.dll
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\Interop.XA_SESSIONLib.dll
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.csproj.ResolveComReference.cache
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\bin\Debug\stock_simulator.exe
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\bin\Debug\stock_simulator.pdb
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.Form1.resources
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.Properties.Resources.resources
+C:\Users\PC\Desktop\vsp\New_silmulation_1\stock_simulator\obj\Debug\stock_simulator.csproj.GenerateResource.Cache
