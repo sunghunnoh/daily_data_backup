@@ -312,10 +312,20 @@ namespace stock_simulator
 
             xingQuery = new XAQuery();
             //xingQuery.ReceiveData += xingQuery_ReceiveData;
+            
+            /*
+            ((XA_SESSIONLib._IXASessionEvents_Event)xingSession).Login += xingSession_Login;
+            xingSession.ConnectServer("demo.ebestsec.co.kr", 20001);
+            ((XA_SESSIONLib.IXASession)xingSession).Login("nshhsn", "shtjdgns", "", 0, false);
+
+            string strConn = "Server=localhost;Database=stock;Uid=nshhsn;Pwd=shtjdgns";
+            conn = new MySqlConnection(strConn);
+            conn.Open();
+             * */
 
             ((XA_SESSIONLib._IXASessionEvents_Event)xingSession).Login += xingSession_Login;
-            xingSession.ConnectServer("demo.etrade.co.kr", 20001);
-            ((XA_SESSIONLib.IXASession)xingSession).Login("nshhsn", "shtjdgns", "", 0, false);
+            xingSession.ConnectServer("hts.ebestsec.co.kr", 20001);
+            ((XA_SESSIONLib.IXASession)xingSession).Login("nshhsn", "shtjdgns", "1q2w3e4r%t", 0, false);
 
             string strConn = "Server=localhost;Database=stock;Uid=nshhsn;Pwd=shtjdgns";
             conn = new MySqlConnection(strConn);
@@ -445,7 +455,7 @@ namespace stock_simulator
 
                 xingQuery.ReceiveData += xingQuery_ReceiveData;
 
-                xingQuery.LoadFromResFile("c:/etrade/xingapi/res/t1305.res");
+                xingQuery.LoadFromResFile("c:/ebest/xingapi/res/t1305.res");
                 xingQuery.SetFieldData("t1305InBlock", "shcode", 0, "000020");
                 xingQuery.SetFieldData("t1305InBlock", "dwmcode", 0, "1");
                 xingQuery.SetFieldData("t1305InBlock", "cnt", 0, "9999");
@@ -471,7 +481,7 @@ namespace stock_simulator
 
                 xingQuery.ReceiveData += xingQuery_ReceiveData;
 
-                xingQuery.LoadFromResFile("c:/etrade/xingapi/res/t1305.res");
+                xingQuery.LoadFromResFile("c:/ebest/xingapi/res/t1305.res");
                 xingQuery.SetFieldData("t1305InBlock", "shcode", 0, SC);
                 xingQuery.SetFieldData("t1305InBlock", "dwmcode", 0, "1");
                 xingQuery.SetFieldData("t1305InBlock", "cnt", 0, "5000");
@@ -482,7 +492,7 @@ namespace stock_simulator
                 resultList.Items.Add("date table save");
                 xingQuery.ReceiveData += xingQuery_ReceiveData;
 
-                xingQuery.LoadFromResFile("c:/etrade/xingapi/res/t1305.res");
+                xingQuery.LoadFromResFile("c:/ebest/xingapi/res/t1305.res");
                 xingQuery.SetFieldData("t1305InBlock", "shcode", 0, SC);
                 xingQuery.SetFieldData("t1305InBlock", "dwmcode", 0, "1");
                 xingQuery.SetFieldData("t1305InBlock", "cnt", 0, "5000");
@@ -494,7 +504,103 @@ namespace stock_simulator
                 /* 데이터 수신 */
         void xingQuery_ReceiveData(string szTrCode)
         {
+            if (szTrCode.Equals("t1305"))
+            {
+                if (date_flag == 1)
+                {
+                    string date;
 
+                    int count = xingQuery.GetBlockCount("t1305OutBlock1");
+
+                    for (int idx = 0; idx < count; idx++)
+                    {
+
+                        date = xingQuery.GetFieldData("t1305OutBlock1", "date", count - 1 - idx);
+
+                        try
+                        {
+                            string sql = String.Format("insert into `stock`.`date` values ('{0}', '{1}')", idx, date);
+                            MySqlCommand cmd = new MySqlCommand(sql, conn);
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (MySqlException c)
+                        {
+                            // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+                        }
+                    }
+                    date_flag = 0;
+                }
+                else
+                {
+                    string date;
+                    Int64 open;
+                    Int64 close;
+                    Int64 high;
+                    Int64 low;
+                    Int64 volume;
+                    Int64 marketcap;
+                    Int64 amount;
+                    //string buy_price;
+
+                    string pre_date;
+                    string pre_close = "";
+                    string pre_volume;
+                    string pre_marketcap;
+                    string pre_amount = "";
+
+                    xingQuery.ReceiveData -= xingQuery_ReceiveData;
+                    
+                    int count = xingQuery.GetBlockCount("t1305OutBlock1");
+                    
+                    string sql = String.Format("insert into `stock`.`{0}` values", SC);
+                    MySqlCommand cmd;
+
+                    // 요청한 기간별 주가 정보를 수신
+                    for (int idx = 0; idx < count; idx++)
+                    {
+                        date = xingQuery.GetFieldData("t1305OutBlock1", "date", count - 1 - idx);
+                        open = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "open", count - 1 - idx));
+                        close = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "close", count - 1 - idx));
+                        high = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "high", count - 1 - idx));
+                        low = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "low", count - 1 - idx));
+                        volume = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "volume", count - 1 - idx));
+                        marketcap = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "marketcap", count - 1 - idx)) * 1000000;
+                        amount = Convert.ToInt64(marketcap / close);
+
+
+                        if (idx == count - 1)
+                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}') ", date, open, close, high, low, volume, marketcap, amount);
+                        else
+                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}') ", date, open, close, high, low, volume, marketcap, amount);
+                    }
+
+                    try
+                    {
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+                    }
+
+                    resultList.Items.Add("-----");
+
+                    // 전체 데이터 저장시
+                    if (save_data_flag == 1)
+                    {
+                        // 다음 데이터를 요청
+                        save_data_order++;
+                        if (save_data_order < 1082)
+                        {
+                            resultList.Items.Add("re_request");
+                            request_t1305(stock_code_data[save_data_order]);
+                        }
+                        else
+                            save_data_flag = 0;
+                    }
+                }
+            }
                 // 주식 코드 데이터 
                 if (szTrCode.Equals("t9945"))
                 {
@@ -2466,6 +2572,54 @@ namespace stock_simulator
 
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int index = 0;
+
+            string sql = String.Format("CREATE TABLE `KOSPI200_STOCK_CODE` (`num` INT NOT NULL,`name` VARCHAR(40) NULL,`code` char(6) NULL,PRIMARY KEY (`num`) )");
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+
+            try
+            {
+                sql = String.Format("SELECT * from stock.stock_code;");
+                cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                sql = "";
+
+                while (reader.Read())
+                {
+                    foreach (string code in KOSPI200_CODE)
+                    {
+                        if (code == Convert.ToString(reader["code"]))
+                        {
+                            sql += String.Format("INSERT INTO stock.KOSPI200_STOCK_CODE (`num`, `name`, `code`) VALUE('{0}', '{1}', {2});", index, Convert.ToString(reader["name"]), Convert.ToString(reader["code"]));
+                            index++;
+                        }
+                    }
+                }
+                reader.Close();
+
+                cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+
+
+                //string sql = String.Format("CREATE TABLE `stock.stock_code2` (`num` INT NOT NULL,`name` VARCHAR(40) NULL,`code` char(6) NULL,PRIMARY KEY (`num`) )");
+                //MySqlCommand cmd = new MySqlCommand(sql, conn);
+                //cmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException a)
+            {
+                int errorcode = a.Number;
+                MessageBox.Show(Convert.ToString(errorcode));
+                //a.StackTrace("");
+                // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+            }
+        }
+
 
 
 #if false
@@ -2609,7 +2763,7 @@ namespace stock_simulator
 
             xingQuery.ReceiveData += xingQuery_ReceiveData;
 
-            xingQuery.LoadFromResFile("c:/etrade/xingapi/res/t1305.res");
+            xingQuery.LoadFromResFile("c:/ebest/xingapi/res/t1305.res");
             xingQuery.SetFieldData("t1305InBlock", "shcode", 0, SC);
             xingQuery.SetFieldData("t1305InBlock", "dwmcode", 0, "1");
             xingQuery.SetFieldData("t1305InBlock", "cnt", 0, "10");
