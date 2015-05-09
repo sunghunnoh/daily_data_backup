@@ -41,6 +41,7 @@ namespace stock_simulator
         int save_data_flag = 0;
         int save_data_count = 0;
         int save_data_order = 0;
+
         string[] stock_code_data = new string[2000];
         string[] stock_name_data = new string[2000];
 
@@ -424,22 +425,24 @@ namespace stock_simulator
             int count = 0;
 
             // database로 부터 데이터 읽어 변수에 저장
+            /*
             for (int i = 0; i < 200; i++ )
             {
                 stock_code_data[count] = Convert.ToString(reader["code"]);
                 stock_name_data[count] = Convert.ToString(reader["name"]);
                 count++;
             }
+             * */
             
             reader.Close();
 
             resultList.Items.Add("-----");
             resultList.Items.Add(String.Format("{0} records has been retrieved.", count));
-            
+
             save_data_count = count;
             save_data_flag = 1;
 
-            request_t1305(stock_code_data[save_data_order]);
+            request_t1305(KOSPI200_CODE[0]);
 
         }
 
@@ -469,7 +472,7 @@ namespace stock_simulator
                 Delay(1000);
                 try
                 {
-                    string sql = String.Format("CREATE TABLE `stock`.`{0}` (`date` VARCHAR(8) NOT NULL,`close` VARCHAR(8) NULL,`volume` VARCHAR(12) NULL,`marketcap` VARCHAR(12) NULL,`amount` VARCHAR(18) NULL,PRIMARY KEY (`date`) )", i);
+                    string sql = String.Format("CREATE TABLE `stock`.`{0}` (`date` VARCHAR(8) NOT NULL,`open` INT(64) NULL,`close` INT(64) NULL,`high` INT(64) NULL,`low` INT(64) NULL,`volume` INT(64) NULL,`marketcap` INT(64) NULL,`amount` INT(64) NULL,`gm_vo` INT(64) NULL,`gm_va` INT(64) NULL, `gm_avg` INT(64) NULL,`gm_vo_sum` INT(64) NULL,PRIMARY KEY (`date`) )", i);
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
@@ -540,13 +543,6 @@ namespace stock_simulator
                     Int64 volume;
                     Int64 marketcap;
                     Int64 amount;
-                    //string buy_price;
-
-                    string pre_date;
-                    string pre_close = "";
-                    string pre_volume;
-                    string pre_marketcap;
-                    string pre_amount = "";
 
                     xingQuery.ReceiveData -= xingQuery_ReceiveData;
                     
@@ -564,14 +560,19 @@ namespace stock_simulator
                         high = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "high", count - 1 - idx));
                         low = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "low", count - 1 - idx));
                         volume = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "volume", count - 1 - idx));
-                        marketcap = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "marketcap", count - 1 - idx)) * 1000000;
-                        amount = Convert.ToInt64(marketcap / close);
-
+                        marketcap = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "marketcap", count - 1 - idx));
+                        amount = marketcap*1000000 / close;
+                        /*
+                        gm_vo = 
+                        gm_va
+                        gm_avg
+                        gm_vo_sum
+                        */
 
                         if (idx == count - 1)
-                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}') ", date, open, close, high, low, volume, marketcap, amount);
+                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,null,null,null,null) ", date, open, close, high, low, volume, marketcap, amount);
                         else
-                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}') ", date, open, close, high, low, volume, marketcap, amount);
+                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', null,null,null,null), ", date, open, close, high, low, volume, marketcap, amount);
                     }
 
                     try
@@ -591,10 +592,10 @@ namespace stock_simulator
                     {
                         // 다음 데이터를 요청
                         save_data_order++;
-                        if (save_data_order < 1082)
+                        if (save_data_order < 200)
                         {
                             resultList.Items.Add("re_request");
-                            request_t1305(stock_code_data[save_data_order]);
+                            request_t1305(KOSPI200_CODE[save_data_order]);
                         }
                         else
                             save_data_flag = 0;
