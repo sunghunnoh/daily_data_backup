@@ -442,7 +442,8 @@ namespace stock_simulator
             save_data_count = count;
             save_data_flag = 1;
 
-            request_t1305(KOSPI200_CODE[0]);
+            request_t1305(KOSPI200_CODE[0]);//0
+            //save_data_order = 113;//
 
         }
 
@@ -472,7 +473,11 @@ namespace stock_simulator
                 Delay(1000);
                 try
                 {
-                    string sql = String.Format("CREATE TABLE `stock`.`{0}` (`date` VARCHAR(8) NOT NULL,`open` INT(64) NULL,`close` INT(64) NULL,`high` INT(64) NULL,`low` INT(64) NULL,`volume` INT(64) NULL,`marketcap` INT(64) NULL,`amount` INT(64) NULL,`gm_vo` INT(64) NULL,`gm_va` INT(64) NULL, `gm_avg` INT(64) NULL,`gm_vo_sum` INT(64) NULL,PRIMARY KEY (`date`) )", i);
+                    string sql = String.Format("CREATE TABLE `stock`.`{0}` (`date` VARCHAR(8) NOT NULL,"
+                       + "`open` INT(64) NULL,`close` INT(64) NULL,`high` INT(64) NULL,`low` INT(64) NULL,"
+                       + "`volume` INT(64) NULL,`marketcap` VARCHAR(30) NULL,`amount` INT(64) NULL,"
+                       + "`BPA` VARCHAR(30) NULL,`BPU` INT(64) NULL, `BPAV` VARCHAR(30) NULL,"
+                       + "`BPAV30` VARCHAR(30) NULL,`BPAV30RATIO` INT(64) NULL,PRIMARY KEY (`date`) )", i);
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
@@ -541,8 +546,18 @@ namespace stock_simulator
                     Int64 high;
                     Int64 low;
                     Int64 volume;
-                    Int64 marketcap;
+                    string marketcap;
                     Int64 amount;
+                    string bpa;
+                    Int64 bpu;
+                    Int64 bpav;
+                    Int64 bpav30;
+                    Int64 bpav30ratio;
+
+                    Int64 pre_bpa = 0; 
+                    Int64 pre_bpu = 0;
+                    Int64[] bpav_buffer = new Int64[30];
+                    bpav_buffer.Initialize();
 
                     xingQuery.ReceiveData -= xingQuery_ReceiveData;
                     
@@ -560,19 +575,69 @@ namespace stock_simulator
                         high = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "high", count - 1 - idx));
                         low = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "low", count - 1 - idx));
                         volume = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "volume", count - 1 - idx));
-                        marketcap = Convert.ToInt64(xingQuery.GetFieldData("t1305OutBlock1", "marketcap", count - 1 - idx));
-                        amount = marketcap*1000000 / close;
-                        /*
-                        gm_vo = 
-                        gm_va
-                        gm_avg
-                        gm_vo_sum
-                        */
+                        marketcap = xingQuery.GetFieldData("t1305OutBlock1", "marketcap", count - 1 - idx);
+                        amount = (Convert.ToInt64(marketcap) * 1000000) / close;
+                        marketcap = Convert.ToString(amount * close);
+                        
+
+                        if(idx == 0)
+                        {
+                            bpa = marketcap;
+                            bpu = Convert.ToInt64(bpa) / amount;
+                            bpav = 0;
+                            bpav30 = 0;
+                            bpav30ratio = 0;
+                        }
+                        else if (idx < 29)
+                        {
+                            bpa = Convert.ToString(pre_bpa + (volume * close) - (volume * pre_bpu));
+                            bpu = Convert.ToInt64(bpa) / amount;
+                            bpav = Convert.ToInt64(bpa) - pre_bpa;
+                            bpav30 = 0;
+                            bpav30ratio = 0;
+                        }
+                        else
+                        {
+                            bpa = Convert.ToString(pre_bpa + (volume * close) - (volume * pre_bpu));
+                            bpu = Convert.ToInt64(bpa) / amount;
+                            bpav = Convert.ToInt64(bpa) - pre_bpa;
+                        }
+
+                        bpav30 = 0;
+
+                        for (int u = 0; u < 29; u++)
+                        {
+                            bpav30 = bpav30 + bpav_buffer[u];
+                        }
+
+                        bpav30 = bpav30 + bpav;
+
+                        bpav30ratio = (bpav30 * 100) / Convert.ToInt64(bpa);
+
+                        pre_bpa = Convert.ToInt64(bpa);
+                        pre_bpu = bpu;
+
+                        for (int k = 0; k < 29; k++)
+                        {
+                            bpav_buffer[29-k] = bpav_buffer[28-k];
+                        }
+
+                        bpav_buffer[0] = bpav;
+
+                        //string sql = String.Format("CREATE TABLE `stock`.`{0}` (`date` VARCHAR(8) NOT NULL,"
+                        //   + "`open` INT(64) NULL,`close` INT(64) NULL,`high` INT(64) NULL,`low` INT(64) NULL,"
+                        //   + "`volume` INT(64) NULL,`marketcap` VARCHAR(30) NULL,`amount` INT(64) NULL,"
+                        //   + "`BPA` VARCHAR(30) NULL,`BPU` INT(64) NULL, `BPAV` INT(64) NULL,"
+                        //   + "`BPAV30` INT(64) NULL,`BPAV30RATIO` INT(64) NULL,PRIMARY KEY (`date`) )", i);
 
                         if (idx == count - 1)
-                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}' ,null,null,null,null) ", date, open, close, high, low, volume, marketcap, amount);
+                            sql = sql + String.Format(
+                                " ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}') ",
+                                date, open, close, high, low, volume, marketcap, amount, bpa, bpu, Convert.ToString(bpav), Convert.ToString(bpav30), bpav30ratio);
                         else
-                            sql = sql + String.Format(" ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', null,null,null,null), ", date, open, close, high, low, volume, marketcap, amount);
+                            sql = sql + String.Format(
+                                " ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}'), ",
+                                date, open, close, high, low, volume, marketcap, amount, bpa, bpu, Convert.ToString(bpav), Convert.ToString(bpav30), bpav30ratio); 
                     }
 
                     try
@@ -2619,6 +2684,49 @@ namespace stock_simulator
                 //a.StackTrace("");
                 // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
             }
+        }
+
+        private void simulOne_Click(object sender, EventArgs e)
+        {
+            // 테이블 만들기 
+            try
+            {
+                string sql = String.Format("CREATE TABLE `stock`.`simul` "
+        + " (`index` INT(64) NULL, `shcode` VARCHAR(10) NOT NULL, `buydate` VARCHAR(8) NOT NULL, `selldate` VARCHAR(8) NOT NULL,"
+        + "`buyclose` INT(64) NULL,`buylow` INT(64) NULL,`buyhigh` INT(64) NULL,`sellclose` INT(64) NULL,"
+        + "`selllow` INT(64) NULL, `sellhigh` INT(64) NULL,"
+        + "`lmr` DOUBLE NULL, `cmr` DOUBLE NULL,"
+        + "`keepdate` INT(64) NULL,PRIMARY KEY (`index`) )");
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException exceptionE)
+            {
+                // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+            }
+
+            // Load data
+            try
+            {
+                string sqlLoad = String.Format("select * from stock.{0} WHERE count(*) > 260", KOSPI200_CODE[0]);
+                MySqlCommand cmd = new MySqlCommand(sqlLoad, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                listBox1.Items.Clear();
+
+                while (reader.Read())
+                {
+                    listBox1.Items.Add(reader["BPAV30RATIO"]);
+                }
+                reader.Close();
+            }
+            catch(MySqlException exceptionLoad)
+            {
+
+            }
+
+
+
         }
 
 
