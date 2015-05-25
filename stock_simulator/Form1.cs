@@ -2950,8 +2950,6 @@ namespace stock_simulator
                         else
                         {
                             //init_flag == 0
-                        }
-                        {
                             if (recal_count > 260)
                             {
                                 if (s_bpav30ratio[i] < 0)
