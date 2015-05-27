@@ -556,7 +556,7 @@ namespace stock_simulator
 
                     Int64 pre_bpa = 0; 
                     Int64 pre_bpu = 0;
-                    Int64[] bpav_buffer = new Int64[30];
+                    Int64[] bpav_buffer = new Int64[60];
                     bpav_buffer.Initialize();
 
                     xingQuery.ReceiveData -= xingQuery_ReceiveData;
@@ -588,7 +588,7 @@ namespace stock_simulator
                             bpav30 = 0;
                             bpav30ratio = 0;
                         }
-                        else if (idx < 29)
+                        else if (idx < 59)
                         {
                             bpa = Convert.ToString(pre_bpa + (volume * close) - (volume * pre_bpu));
                             bpu = Convert.ToInt64(bpa) / amount;
@@ -605,7 +605,7 @@ namespace stock_simulator
 
                         bpav30 = 0;
 
-                        for (int u = 0; u < 29; u++)
+                        for (int u = 0; u < 59; u++)
                         {
                             bpav30 = bpav30 + bpav_buffer[u];
                         }
@@ -617,9 +617,9 @@ namespace stock_simulator
                         pre_bpa = Convert.ToInt64(bpa);
                         pre_bpu = bpu;
 
-                        for (int k = 0; k < 29; k++)
+                        for (int k = 0; k < 59; k++)
                         {
-                            bpav_buffer[29-k] = bpav_buffer[28-k];
+                            bpav_buffer[59-k] = bpav_buffer[58-k];
                         }
 
                         bpav_buffer[0] = bpav;
@@ -2850,7 +2850,7 @@ namespace stock_simulator
 
                         if (init_flag == 1)
                         {
-                            if ((s_bpav30ratio[i] > 3) && (buy_flag == 0))    //buy condition
+                            if ((s_bpav30ratio[i] > 5) && (buy_flag == 0))    //buy condition
                             {
                                 buy_flag = 1;
 
@@ -2860,7 +2860,7 @@ namespace stock_simulator
                                 BCPB = s_close[i];
 
                             }
-                            else if ((s_bpav30ratio[i] <= 0) && (buy_flag == 1))   // sell condition
+                            else if ((s_bpav30ratio[i] <= 2) && (buy_flag == 1))   // sell condition
                             {
                                 buy_flag = 0;
 
@@ -2899,7 +2899,7 @@ namespace stock_simulator
                                 LMRB = 0;
                                 CMRB = 0;
                             }
-                            
+                            /*
                             else if (buy_flag == 1)  //loss cut
                             {
                                 if ( ((double)(s_close[i]) / (double)(BCPB)) < 0.9)
@@ -2910,6 +2910,10 @@ namespace stock_simulator
                                     SLPB = s_low[i];
                                     SHPB = s_high[i];
                                     SCPB = s_close[i];
+
+                                    SLPB = BCPB*9/10;
+                                    SHPB = BCPB * 9 / 10;
+                                    SCPB = BCPB * 9 / 10;
 
                                     //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
                                     LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
@@ -2945,6 +2949,7 @@ namespace stock_simulator
 
                                 }
                             }
+                             * */
                              
                         }
                         else
