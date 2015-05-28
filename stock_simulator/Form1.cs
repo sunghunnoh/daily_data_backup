@@ -2860,7 +2860,7 @@ namespace stock_simulator
                                 BCPB = s_close[i];
 
                             }
-                            else if ((s_bpav30ratio[i] <= 2) && (buy_flag == 1))   // sell condition
+                            else if ((s_bpav30ratio[i] <= 0) && (buy_flag == 1))   // sell condition
                             {
                                 buy_flag = 0;
 
