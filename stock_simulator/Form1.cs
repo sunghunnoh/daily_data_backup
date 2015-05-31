@@ -2904,6 +2904,7 @@ namespace stock_simulator
                                 }
 
                             }
+                            else if ((s_bpav30ratio[i] < 0) && (buy_flag == 1)) //((s_bpav30ratio[i] <= 10) && (s_bpav30ratio[i - 1] >= (s_bpav30ratio[i]+5)) && (buy_flag == 1))   // sell condition
                             {
                                 buy_flag = 0;
 
