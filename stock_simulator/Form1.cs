@@ -2827,7 +2827,7 @@ namespace stock_simulator
                     if (s_bpav30ratio[0] < 0)
                         init_flag = 1;
 
-                    for (int i = 10; i < read_count; i++)
+                    for (int i = 30; i < read_count; i++)
                     {
                         // 갑작스러운 주식 수 변화 시 안정기간을 둠
                         if ((s_close[i] > s_close[i - 1] * 1.16) || (s_close[i] < s_close[i - 1] * 0.84) || (s_amount[i] > s_amount[i - 1] + 1000) || (s_amount[i] < s_amount[i] - 1000) || (s_volume[i]==0))
@@ -2904,7 +2904,12 @@ namespace stock_simulator
                                 }
 
                             }
-                            else if ((s_bpav30ratio[i] < 0) && (buy_flag == 1)) //((s_bpav30ratio[i] <= 10) && (s_bpav30ratio[i - 1] >= (s_bpav30ratio[i]+5)) && (buy_flag == 1))   // sell condition
+
+                           else if ((((s_bpav30ratio[i] >= 2) && (s_bpav30ratio[i] <= 5) && (s_bpav30ratio[i - 5] >= (s_bpav30ratio[i] + 4))) ||
+                                     ((s_bpav30ratio[i] >= 2) && (s_bpav30ratio[i] <= 9) && (s_bpav30ratio[i - 10] >= (s_bpav30ratio[i] + 5)) && (s_bpav30ratio[i - 10] >= (s_bpav30ratio[i] + 15))) ||
+                                     ((s_bpav30ratio[i] >= 1) && (s_bpav30ratio[i] <= 8) && (s_bpav30ratio[i - 20] >= (s_bpav30ratio[i] + 5)) && (s_bpav30ratio[i - 20] >= (s_bpav30ratio[i] + 15))) ||
+                                     ((s_bpav30ratio[i] >= 1) && (s_bpav30ratio[i] <= 8) && (s_bpav30ratio[i - 30] >= (s_bpav30ratio[i] + 5)) && (s_bpav30ratio[i - 30] >= (s_bpav30ratio[i] + 15)))) &&
+                                      (buy_flag == 1)) //((s_bpav30ratio[i] <= 10) && (s_bpav30ratio[i - 1] >= (s_bpav30ratio[i]+5)) && (buy_flag == 1))   // sell condition
                             {
                                 buy_flag = 0;
 
@@ -2986,10 +2991,9 @@ namespace stock_simulator
                                 init_flag = 0;
                                 recal_count = 261;
                             }*/
-
                             else if (buy_flag == 1)  //loss cut
                             {
-                                if (((double)(s_close[i]) / (double)(BCPB)) < 0.5)
+                                if ((s_bpav30ratio[i] < 1) )//|| ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 20] != s_bpav30ratio[i] + 8)) || ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 30] != s_bpav30ratio[i] + 8)))
                                 {
                                     buy_flag = 0;
 
