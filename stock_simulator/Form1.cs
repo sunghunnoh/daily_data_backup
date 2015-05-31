@@ -2757,6 +2757,8 @@ namespace stock_simulator
                 // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
             }
 
+            s_index = 1;
+
             for (int j = 0; j < 200; j++ )
             {
 
@@ -2847,7 +2849,7 @@ namespace stock_simulator
 
                                 try
                                 {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
-                                    string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, temp);
+                                    string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 2);
                                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                                     cmd.ExecuteNonQuery();
                                 }
@@ -2902,7 +2904,6 @@ namespace stock_simulator
                                 }
 
                             }
-                            else if ((s_bpav30ratio[i] < 0) && (buy_flag == 1))   // sell condition
                             {
                                 buy_flag = 0;
 
@@ -2917,7 +2918,7 @@ namespace stock_simulator
 
                                 try
                                 {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
-                                    string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, temp);
+                                    string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 0);
                                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                                     cmd.ExecuteNonQuery();
                                 }
@@ -2996,11 +2997,6 @@ namespace stock_simulator
                                     SHPB = s_high[i];
                                     SCPB = s_close[i];
 
-                                    /*
-                                    SLPB = BCPB * 70 / 100;
-                                    SHPB = BCPB * 70 / 100;
-                                    SCPB = BCPB * 70 / 100;
-                                    */
 
                                     //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
                                     LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
@@ -3037,7 +3033,7 @@ namespace stock_simulator
 
 
                                 }
-                            }
+                            } 
                         }  
                         else
                         {
@@ -3063,6 +3059,7 @@ namespace stock_simulator
 
                 resultList.Items.Add(result);
                 resultList.Items.Add(s_index);
+                resultList.Items.Add(Math.Pow(Convert.ToDouble(result), (1 / Convert.ToDouble(s_index)) ));
                 
             }
 
