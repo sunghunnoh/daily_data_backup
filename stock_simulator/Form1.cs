@@ -2904,12 +2904,14 @@ namespace stock_simulator
                                 }
 
                             }
-
-                           else if ((((s_bpav30ratio[i] >= 2) && (s_bpav30ratio[i] <= 5) && (s_bpav30ratio[i - 5] >= (s_bpav30ratio[i] + 4))) ||
-                                     ((s_bpav30ratio[i] >= 2) && (s_bpav30ratio[i] <= 9) && (s_bpav30ratio[i - 10] >= (s_bpav30ratio[i] + 5)) && (s_bpav30ratio[i - 10] >= (s_bpav30ratio[i] + 15))) ||
-                                     ((s_bpav30ratio[i] >= 1) && (s_bpav30ratio[i] <= 8) && (s_bpav30ratio[i - 20] >= (s_bpav30ratio[i] + 5)) && (s_bpav30ratio[i - 20] >= (s_bpav30ratio[i] + 15))) ||
-                                     ((s_bpav30ratio[i] >= 1) && (s_bpav30ratio[i] <= 8) && (s_bpav30ratio[i - 30] >= (s_bpav30ratio[i] + 5)) && (s_bpav30ratio[i - 30] >= (s_bpav30ratio[i] + 15)))) &&
+/*
+                           else if ((((s_bpav30ratio[i] <= 5) && (s_bpav30ratio[i - 5] >= (s_bpav30ratio[i] + 4))) ||
+                                     ((s_bpav30ratio[i] <= 9) && (s_bpav30ratio[i - 10] >= (s_bpav30ratio[i] + 5)) ) ||
+                                     ((s_bpav30ratio[i] <= 8) && (s_bpav30ratio[i - 20] >= (s_bpav30ratio[i] + 5)) ) ||
+                                     ((s_bpav30ratio[i] <= 8) && (s_bpav30ratio[i - 30] >= (s_bpav30ratio[i] + 5)) )) &&
                                       (buy_flag == 1)) //((s_bpav30ratio[i] <= 10) && (s_bpav30ratio[i - 1] >= (s_bpav30ratio[i]+5)) && (buy_flag == 1))   // sell condition
+*/
+                            else if ((((s_bpav30ratio[i] <= 4) && (s_bpav30ratio[i - 5] >= (s_bpav30ratio[i] + 3))) && (buy_flag == 1))) //((s_bpav30ratio[i] <= 10) && (s_bpav30ratio[i - 1] >= (s_bpav30ratio[i]+5)) && (buy_flag == 1))   // sell condition
                             {
                                 buy_flag = 0;
 
@@ -2993,7 +2995,7 @@ namespace stock_simulator
                             }*/
                             else if (buy_flag == 1)  //loss cut
                             {
-                                if ((s_bpav30ratio[i] < 1) )//|| ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 20] != s_bpav30ratio[i] + 8)) || ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 30] != s_bpav30ratio[i] + 8)))
+                                if ((s_bpav30ratio[i] < 0) )//|| ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 20] != s_bpav30ratio[i] + 8)) || ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 30] != s_bpav30ratio[i] + 8)))
                                 {
                                     buy_flag = 0;
 
