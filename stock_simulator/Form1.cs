@@ -2842,9 +2842,9 @@ namespace stock_simulator
                 }
             }
 
-            for (int m = 1; m <= 1; m++) 
+            for (int m = 0; m <= 20; m++) 
             {
-                for (int n = 0; n <= 20; n++) 
+                for (int n = 1; n <= 20; n++) 
                 {
                     result = 1;
                     s_index = 0;
@@ -3008,7 +3008,7 @@ namespace stock_simulator
                                         }
 
                                     }
-                                    else if ( (s_bpav30ratio[j, i] <= n) && (buy_flag == 1))   // sell condition
+                                    if ((s_bpav30ratio[j, i] >= m) && (s_bpav30ratio[j, i - 1] < s_bpav30ratio[j, i] - n) && (buy_flag == 1))   // sell condition
                                     {
                                         buy_flag = 0;
 
