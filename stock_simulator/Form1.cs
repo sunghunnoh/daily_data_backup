@@ -2738,7 +2738,7 @@ namespace stock_simulator
             int recal_flag = 0;
             int recal_count = 0;
 
-
+            int bba;
             
             // 테이블 만들기 
             try
@@ -2782,6 +2782,13 @@ namespace stock_simulator
                 if (a > 260)    //data 숫자가 260개 초과 일 때 해당 데이터를 사용
                 {
                     s_shcode = KOSPI200_CODE[j];
+
+                    //if (Convert.ToInt64(s_shcode) == 5180)
+                    //{
+                    //    bba = 1;
+                    //}
+
+                   // bba = 2;
                     //road data
                     try
                     {
@@ -2818,7 +2825,7 @@ namespace stock_simulator
                     if (s_bpav30ratio[0] < 0)
                         init_flag = 1;
 
-                    for (int i = 1; i < read_count; i++)
+                    for (int i = 10; i < read_count; i++)
                     {
                         // 갑작스러운 주식 수 변화 시 안정기간을 둠
                         if ((s_close[i] > s_close[i - 1] * 1.16) || (s_close[i] < s_close[i - 1] * 0.84) || (s_amount[i] > s_amount[i - 1] + 1000) || (s_amount[i] < s_amount[i] - 1000) || (s_volume[i]==0))
@@ -2872,9 +2879,14 @@ namespace stock_simulator
 
                         if (init_flag == 1)
                         {
-                            if ((s_bpav30ratio[i] > 5) && (buy_flag == 0))    //buy condition
+                            if ((s_bpav30ratio[i] >= 1) && (s_bpav30ratio[i - 10] <= -1) && (buy_flag == 0))    //buy condition
                             {
-                                if ((s_gap[i] <= 60))
+                                Int64 aaa = s_bpav30ratio[i];
+                                Int64 bbb = buy_flag;
+                                Int64 ccc = s_bpu[i];
+                                Int64 ddd = s_close[i];
+
+                                if ((s_gap[i] <= 40))
                                 {
                                     buy_flag = 1;
 
@@ -2890,7 +2902,7 @@ namespace stock_simulator
                                 }
 
                             }
-                            else if ((s_bpav30ratio[i] <= 0) && (buy_flag == 1))   // sell condition
+                            else if ((s_bpav30ratio[i] < 0) && (buy_flag == 1))   // sell condition
                             {
                                 buy_flag = 0;
 
@@ -2972,62 +2984,65 @@ namespace stock_simulator
                                 init_flag = 0;
                                 recal_count = 261;
                             }*/
-                            /*
-                        else if (buy_flag == 1)  //loss cut
-                        {
-                            if ( ((double)(s_low[i]) / (double)(BCPB)) < 0.85)
+
+                            else if (buy_flag == 1)  //loss cut
                             {
-                                buy_flag = 0;
-
-                                SDATE = s_date[i];
-                                SLPB = s_low[i];
-                                SHPB = s_high[i];
-                                SCPB = s_close[i];
-
-                                SLPB = BCPB*85/100;
-                                SHPB = BCPB * 85 / 100;
-                                SCPB = BCPB * 85 / 100;
-
-                                //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
-                                LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
-                                CMRB = (double)((SCPB - 0.0015 * SCPB - 0.0015 * BCPB - 0.003 * SCPB) / BCPB);
-
-                                try
-                                {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
-                                    string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 1);
-                                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                                    cmd.ExecuteNonQuery();
-                                }
-                                catch (MySqlException d)
+                                if (((double)(s_close[i]) / (double)(BCPB)) < 0.5)
                                 {
-                                    // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+                                    buy_flag = 0;
+
+                                    SDATE = s_date[i];
+                                    SLPB = s_low[i];
+                                    SHPB = s_high[i];
+                                    SCPB = s_close[i];
+
+                                    /*
+                                    SLPB = BCPB * 70 / 100;
+                                    SHPB = BCPB * 70 / 100;
+                                    SCPB = BCPB * 70 / 100;
+                                    */
+
+                                    //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
+                                    LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
+                                    CMRB = (double)((SCPB - 0.0015 * SCPB - 0.0015 * BCPB - 0.003 * SCPB) / BCPB);
+
+                                    try
+                                    {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
+                                        string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 1);
+                                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                    catch (MySqlException d)
+                                    {
+                                        // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+                                    }
+
+                                    result = result * CMRB;
+
+                                    s_index++;
+
+                                    BDATE = null;
+                                    BLPB = 0;
+                                    BHPB = 0;
+                                    BCPB = 0;
+                                    SDATE = null;
+                                    SLPB = 0;
+                                    SHPB = 0;
+                                    SCPB = 0;
+                                    LMRB = 0;
+                                    CMRB = 0;
+
+                                    init_flag = 0;
+                                    recal_count = 261;
+
+
                                 }
-
-                                result = result * CMRB;
-
-                                s_index++;
-                                    
-                                BDATE = null;
-                                BLPB = 0;
-                                BHPB = 0;
-                                BCPB = 0;
-                                SDATE = null;
-                                SLPB = 0;
-                                SHPB = 0;
-                                SCPB = 0;
-                                LMRB = 0;
-                                CMRB = 0;
-
-                                init_flag = 0;
-
                             }
                         }  
-                             * */
-                        }
                         else
                         {
                             //init_flag == 0
-                            if (recal_count > 440)//260
+                            if (recal_count > 260)//260
                             {
                                 if (s_bpav30ratio[i] < 0)
                                 {
@@ -3047,6 +3062,7 @@ namespace stock_simulator
 
 
                 resultList.Items.Add(result);
+                resultList.Items.Add(s_index);
                 
             }
 
