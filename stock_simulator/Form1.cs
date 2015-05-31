@@ -2844,7 +2844,7 @@ namespace stock_simulator
 
             for (int m = -10; m <= 10; m++) 
             {
-                for (int n = m-10; n < m; n++) 
+                for (int n = 0; n <= 20; n++) 
                 {
                     result = 1;
                     s_index = 0;
@@ -2921,7 +2921,7 @@ namespace stock_simulator
                             if (s_bpav30ratio[j,0] < 0)
                                 init_flag = 1;
 
-                            for (int i = 20; i < read_count[j]; i++)
+                            for (int i = 30; i < read_count[j]; i++)
                             {
                                 // 갑작스러운 주식 수 변화 시 안정기간을 둠
                                 if ((s_close[j,i] > s_close[j,i - 1] * 1.16) || (s_close[j,i] < s_close[j,i - 1] * 0.84) || (s_amount[j,i] > s_amount[j,i - 1] + 1000) || (s_amount[j,i] < s_amount[j,i] - 1000) || (s_volume[j,i] == 0))
@@ -2985,7 +2985,7 @@ namespace stock_simulator
 
                                 if (init_flag == 1)
                                 {
-                                    if ((s_bpav30ratio[j,i] >= m) && (s_bpav30ratio[j,i - 20] <= n) && (buy_flag == 0))    //buy condition
+                                    if (((s_bpav30ratio[j,i] == 4) && (s_bpav30ratio[j,i - 30] >= -6) && (s_bpav30ratio[j,i - 30] <= 3) && (s_bpav30ratio[j,i - 20] >= -4) && (s_bpav30ratio[j,i - 20] <= 3) && (s_bpav30ratio[j,i - 10] >= 1) && (s_bpav30ratio[j,i - 10] <= 3) && (s_bpav30ratio[j,i - 5] >= 2) && (s_bpav30ratio[j,i - 5] <= 3) && (s_bpav30ratio[j,i - 1] == 3) && (buy_flag == 0)))    //buy condition)    //buy condition
                                     {
                                         Int64 aaa = s_bpav30ratio[j,i];
                                         Int64 bbb = buy_flag;
@@ -3008,7 +3008,7 @@ namespace stock_simulator
                                         }
 
                                     }
-                                    else if ((s_bpav30ratio[j,i] < 0) && (buy_flag == 1))   // sell condition
+                                    else if ((s_bpav30ratio[j, i] <= m) && (s_bpav30ratio[j, i-1] >= m+n) && (buy_flag == 1))   // sell condition
                                     {
                                         buy_flag = 0;
 
@@ -3159,16 +3159,6 @@ namespace stock_simulator
 
                                             init_flag = 0;
                                             recal_count = 261;
-
-                                            if (CMRB < 1)
-                                            {
-                                                Loss_count++;
-                                            }
-                                            else
-                                            {
-                                                Win_count++;
-                                            }
-
 
                                         }
                                     }
