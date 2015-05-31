@@ -2842,7 +2842,7 @@ namespace stock_simulator
                 }
             }
 
-            for (int m = -10; m <= 10; m++) 
+            for (int m = 1; m <= 1; m++) 
             {
                 for (int n = 0; n <= 20; n++) 
                 {
@@ -3008,7 +3008,7 @@ namespace stock_simulator
                                         }
 
                                     }
-                                    else if ((s_bpav30ratio[j, i] <= m) && (s_bpav30ratio[j, i-30] >= m+n) && (buy_flag == 1))   // sell condition
+                                    else if ( (s_bpav30ratio[j, i] <= n) && (buy_flag == 1))   // sell condition
                                     {
                                         buy_flag = 0;
 
@@ -3103,7 +3103,7 @@ namespace stock_simulator
 
                                     else if (buy_flag == 1)  //loss cut
                                     {
-                                        if (((double)(s_close[j,i]) / (double)(BCPB)) < 0.5)
+                                        if(s_bpav30ratio[j,i] < 0)
                                         {
                                             buy_flag = 0;
 
