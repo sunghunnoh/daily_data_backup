@@ -2730,6 +2730,7 @@ namespace stock_simulator
             Double LMRB = 0;
             Double CMRB = 0;
             Double result = 1;
+            Double result1 = 1;
 
             Int64 temp = 0;
 
@@ -2738,8 +2739,20 @@ namespace stock_simulator
             int recal_flag = 0;
             int recal_count = 0;
 
+            Int64 aaa=0;
+            Int64 bbb=0;
+            Int64 ccc=0;
+            Int64 ddd=0;
+            Int64 aa = 0;
+            Int64 bb = 0;
+            Int64 cc = 0;
+            Int64 dd = 0;
+            Int64 count_date=0;
+            Int64 remain = 0;
+
             int bba;
             
+
             // 테이블 만들기 
             try
             {
@@ -2829,6 +2842,7 @@ namespace stock_simulator
 
                     for (int i = 30; i < read_count; i++)
                     {
+                        count_date ++;
                         // 갑작스러운 주식 수 변화 시 안정기간을 둠
                         if ((s_close[i] > s_close[i - 1] * 1.16) || (s_close[i] < s_close[i - 1] * 0.84) || (s_amount[i] > s_amount[i - 1] + 1000) || (s_amount[i] < s_amount[i] - 1000) || (s_volume[i]==0))
                         {
@@ -2859,6 +2873,7 @@ namespace stock_simulator
                                 }
 
                                 result = result * CMRB;
+                                result1 = result1 * LMRB;
 
                                 s_index++;
                                 
@@ -2882,114 +2897,41 @@ namespace stock_simulator
                         if (init_flag == 1)
                         {
                             //if ((s_bpav30ratio[i] == 4) && (s_bpav30ratio[i - 30] >= -6) && (s_bpav30ratio[i - 30] <= 3) && (s_bpav30ratio[i - 20] >= -4) && (s_bpav30ratio[i - 20] <= 3) && (s_bpav30ratio[i - 10] >= 1) && (s_bpav30ratio[i - 10] <= 3) && (s_bpav30ratio[i - 5] >= 2) && (s_bpav30ratio[i - 5] <= 3) && (s_bpav30ratio[i - 1] == 3) && (buy_flag == 0))    //buy condition
-                            if ((s_bpav30ratio[i] == 4) && ((s_bpav30ratio[i - 1] == 3) && ((s_bpav30ratio[i - 5] >= 2) && (s_bpav30ratio[i - 5] <= 3)) && (s_bpav30ratio[i - 10] >= 1) && (s_bpav30ratio[i - 10] <= 3)) && (buy_flag == 0))    //buy condition
+                            if (buy_flag == 0)
                             {
-                                Int64 aaa = s_bpav30ratio[i];
-                                Int64 bbb = buy_flag;
-                                Int64 ccc = s_bpu[i];
-                                Int64 ddd = s_close[i];
-
-                                if ((s_gap[i] <= 40))
+                                if ((Convert.ToDouble(s_bpu[i]) * 1.27 < s_close[i]) && (s_bpav30ratio[i] == 4) && ((s_bpav30ratio[i - 1] == 3) && ((s_bpav30ratio[i - 5] >= 2) && (s_bpav30ratio[i - 5] <= 3)) && (s_bpav30ratio[i - 10] >= 1) && (s_bpav30ratio[i - 10] <= 3)))    //buy condition
                                 {
-                                    buy_flag = 1;
+                                    aaa = s_bpav30ratio[i];
+                                    bbb = buy_flag;
+                                    ccc = s_bpu[i];
+                                    ddd = s_close[i];
+                                    count_date = 0;
 
-                                    BDATE = s_date[i];
-                                    BLPB = s_low[i];
-                                    BHPB = s_high[i];
-                                    BCPB = s_close[i];
-                                }
-                                else
-                                {
-                                    init_flag = 0;
-                                    recal_count = 261;
-                                }
+                                    //if ((s_gap[i] <= 40))
+                                    {
+                                        buy_flag = 1;
 
+                                        BDATE = s_date[i];
+                                        BLPB = s_low[i];
+                                        BHPB = s_high[i];
+                                        BCPB = s_close[i];
+                                    }
+                                    /*
+                                    else
+                                    {
+                                        init_flag = 0;
+                                        recal_count = 261;
+                                    }
+                                    */
+
+                                }
                             }
-                            else if (((s_bpav30ratio[i - 1] >= s_bpav30ratio[i] + 5) || (s_bpav30ratio[i - 2] >= s_bpav30ratio[i] + 6) || (s_bpav30ratio[i - 3] >= s_bpav30ratio[i] + 6) || (s_bpav30ratio[i - 4] >= s_bpav30ratio[i] + 10) || (s_bpav30ratio[i - 5] >= s_bpav30ratio[i] + 12)) && (buy_flag == 1)) //((s_bpav30ratio[i] <= 10) && (s_bpav30ratio[i - 1] >= (s_bpav30ratio[i]+5)) && (buy_flag == 1))   // sell condition
+                            else if (buy_flag == 1)
                             {
-                                buy_flag = 0;
-
-                                SDATE = s_date[i];
-                                SLPB = s_low[i];
-                                SHPB = s_high[i];
-                                SCPB = s_close[i];
-
-                                //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
-                                LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
-                                CMRB = (double)((SCPB - 0.0015 * SCPB - 0.0015 * BCPB - 0.003 * SCPB) / BCPB);
-
-                                try
-                                {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
-                                    string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 0);
-                                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                                    cmd.ExecuteNonQuery();
-                                }
-                                catch (MySqlException d)
-                                {
-                                    // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
-                                }
-
-                                result = result * CMRB;
-
-                                s_index++;
-                                
-                                BDATE = null;
-                                BLPB = 0;
-                                BHPB = 0;
-                                BCPB = 0;
-                                SDATE = null;
-                                SLPB = 0;
-                                SHPB = 0;
-                                SCPB = 0;
-                                LMRB = 0;
-                                CMRB = 0;
-                            }
-                            /*
-                            else if ((s_bpu[i] >= s_close[i]) && (buy_flag == 1))   // sell condition
-                            {
-                                buy_flag = 0;
-
-                                SDATE = s_date[i];
-                                SLPB = s_low[i];
-                                SHPB = s_high[i];
-                                SCPB = s_close[i];
-
-                                //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
-                                LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
-                                CMRB = (double)((SCPB - 0.0015 * SCPB - 0.0015 * BCPB - 0.003 * SCPB) / BCPB);
-
-                                try
-                                {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
-                                    string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, temp);
-                                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                                    cmd.ExecuteNonQuery();
-                                }
-                                catch (MySqlException d)
-                                {
-                                    // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
-                                }
-
-                                result = result * CMRB;
-
-                                s_index++;
-
-                                BDATE = null;
-                                BLPB = 0;
-                                BHPB = 0;
-                                BCPB = 0;
-                                SDATE = null;
-                                SLPB = 0;
-                                SHPB = 0;
-                                SCPB = 0;
-                                LMRB = 0;
-                                CMRB = 0;
-
-                                init_flag = 0;
-                                recal_count = 261;
-                            }*/
-                            else if (buy_flag == 1)  //loss cut
-                            {
-                                if ((s_bpav30ratio[i] < 0) || (s_close[i] < Convert.ToDouble(BCPB) *0.9))//|| ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 20] != s_bpav30ratio[i] + 8)) || ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 30] != s_bpav30ratio[i] + 8)))
+                                //if ((s_bpav30ratio[i - 1] >= s_bpav30ratio[i] + 5) || (s_bpav30ratio[i - 2] >= s_bpav30ratio[i] + 6) || (s_bpav30ratio[i - 3] >= s_bpav30ratio[i] + 6) || (s_bpav30ratio[i - 4] >= s_bpav30ratio[i] + 10) || (s_bpav30ratio[i - 5] >= s_bpav30ratio[i] + 12)) //((s_bpav30ratio[i] <= 10) && (s_bpav30ratio[i - 1] >= (s_bpav30ratio[i]+5)) && (buy_flag == 1))   // sell condition
+                                //if ( (Convert.ToDouble(s_bpu[i]) * 1.1 > s_close[i]) )
+                                /*
+                                if ( (s_bpav30ratio[i - 1] >= s_bpav30ratio[i] + 5) || (s_bpav30ratio[i - 2] >= s_bpav30ratio[i] + 6) || (s_bpav30ratio[i - 3] >= s_bpav30ratio[i] + 6) || (s_bpav30ratio[i - 4] >= s_bpav30ratio[i] + 10) || (s_bpav30ratio[i - 5] >= s_bpav30ratio[i] + 12))
                                 {
                                     buy_flag = 0;
 
@@ -2998,14 +2940,13 @@ namespace stock_simulator
                                     SHPB = s_high[i];
                                     SCPB = s_close[i];
 
-
                                     //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
                                     LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
                                     CMRB = (double)((SCPB - 0.0015 * SCPB - 0.0015 * BCPB - 0.003 * SCPB) / BCPB);
 
                                     try
                                     {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
-                                        string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 1);
+                                        string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 0);
                                         MySqlCommand cmd = new MySqlCommand(sql, conn);
                                         cmd.ExecuteNonQuery();
                                     }
@@ -3028,14 +2969,68 @@ namespace stock_simulator
                                     SCPB = 0;
                                     LMRB = 0;
                                     CMRB = 0;
+                                }*/
+                                if ( (s_bpav30ratio[i] < 0) || (s_close[i] <= (BCPB * 80 / 100)) )/*|| ((count_date == 5) && s_bpav30ratio[i] <= (aaa - 1) || ((count_date == 1) && s_bpav30ratio[i] <= (aaa - 1)) )*///|| (s_close[i] < Convert.ToDouble(BCPB) *0.8)  || ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 20] != s_bpav30ratio[i] + 8)) || ((s_bpav30ratio[i] == 1) && (s_bpav30ratio[i - 30] != s_bpav30ratio[i] + 8)))
+                                {
+                                    buy_flag = 0;
+
+                                    SDATE = s_date[i];
+                                    SLPB = s_low[i];
+                                    SHPB = s_high[i];
+                                    SCPB = s_close[i];
+
+                                    count_date = 0;
+                                    //최저 마진 = (낮은 판매 가격 - 낮은 판매 수수료 - 높은 구매 수수료 - 낮은 판매 세금) / 높은 가격 구매
+                                    LMRB = (double)((SLPB - 0.0015 * SLPB - 0.0015 * BHPB - 0.003 * SHPB) / BHPB);
+                                    CMRB = (double)((SCPB - 0.0015 * SCPB - 0.0015 * BCPB - 0.003 * SCPB) / BCPB);
+
+                                    try
+                                    {                           //index, shcode, buydate, selldate, buyclose, buylow, buyhigh, sellclose, selllow, sellhigh, lmr, cmr, keepdate                                                         
+                                        string sql = String.Format("insert into `stock`.`simul` values ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", s_index, s_shcode, BDATE, SDATE, BCPB, BLPB, BHPB, SCPB, SLPB, SHPB, LMRB, CMRB, 1);
+                                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                    catch (MySqlException d)
+                                    {
+                                        // in case of duplicate primay key exception e.Number will be 1062. Just ignore any exception...
+                                    }
+
+                                    result = result * CMRB;
+                                    result1 = result1 * LMRB;
+                                    s_index++;
+
+                                    BDATE = null;
+                                    BLPB = 0;
+                                    BHPB = 0;
+                                    BCPB = 0;
+                                    SDATE = null;
+                                    SLPB = 0;
+                                    SHPB = 0;
+                                    SCPB = 0;
+                                    LMRB = 0;
+                                    CMRB = 0;
 
                                     init_flag = 0;
                                     recal_count = 261;
 
 
                                 }
+
+                                if (read_count == i + 1)
+                                {
+                                    if (buy_flag == 1)
+                                    {
+                                        remain++;
+                                        aa = s_bpav30ratio[i];
+                                        bb = buy_flag;
+                                        cc = s_bpu[i];
+                                        dd = s_close[i];
+                                        count_date = 0;
+                                    }
+                                }
                             } 
-                        }  
+
+                        }
                         else
                         {
                             //init_flag == 0
@@ -3052,15 +3047,21 @@ namespace stock_simulator
                             }
                         }
 
+
+
                     }
 
                 }
 
 
 
-                resultList.Items.Add(result);
-                resultList.Items.Add(s_index);
-                resultList.Items.Add(Math.Pow(Convert.ToDouble(result), (1 / Convert.ToDouble(s_index)) ));
+                resultList.Items.Add("index:" + s_index);
+                resultList.Items.Add("remain:"+remain);
+                resultList.Items.Add("CLOSE :" + result);
+                resultList.Items.Add("CLOSE :" + Math.Pow(Convert.ToDouble(result), (1 / Convert.ToDouble(s_index))));
+                resultList.Items.Add("LOW :" + result1);
+                resultList.Items.Add("LOW :" + Math.Pow(Convert.ToDouble(result1), (1 / Convert.ToDouble(s_index))));
+                
                 
             }
 
